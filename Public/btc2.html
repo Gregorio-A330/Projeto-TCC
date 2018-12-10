@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <title>Crypto World</title>
 </head>
 
@@ -18,26 +18,21 @@
         <a href="./index.html"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-arrow-left"></span>
                 Voltar </button></a>
                 <h1 style="text-align: center; margin-top: 100px"> BTC </h1>
-<script>
-'use strict';
 
-var readline = require('readline');
-var request = require('request');
+                <p id="demo">Visit Microsoft!</p>
 
-var API = {
-  host: 'https://www.mercadobitcoin.net',
-  path: '/api/'
-};
+<script type="text/javascript" src="/app.js">
+//document.getElementById("result").innerHTML;
+//window.onload=myFunction();
+    // Localiza o elemento com id id_p
+    // var p = document.getElementById('result'); 
+    var str = document.getElementById("demo").innerHTML; 
+    var res = str.replace();
+    document.getElementById("demo") = res;
 
-var coin = 'btc'; //bitcoin
-var method = 'ticker'; //resumo das operações executadas
-
-request(API.host + API.path + coin + '/' + method, { json: true }, (err, res, body) => {
-  var result = body;
-  console.log(result);
-});
-
+    
 </script>
+
 </body>                
 
 </html>
