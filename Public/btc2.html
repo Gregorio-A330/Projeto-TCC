@@ -10,28 +10,58 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    
     <title>Crypto World</title>
+
+    <script type="text/javascript">
+        var HttpClient = function() {
+        this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() { 
+        if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+        aCallback(anHttpRequest.responseText);
+        }
+        anHttpRequest.open( "GET", aUrl, true ); 
+        anHttpRequest.send( null ); 
+        }
+        }
+        var theurl='https://www.mercadobitcoin.net/api/btc/ticker/';
+        var client = new HttpClient();
+        client.get(theurl, function(response) { 
+        var response1 = JSON.parse(response);
+        // alert(response);
+    
+        document.getElementById("high").innerHTML = response1.ticker.high;
+        document.getElementById("low").innerHTML = response1.ticker.low;
+        document.getElementById("vol").innerHTML = response1.ticker.vol;
+        document.getElementById("last").innerHTML = response1.ticker.last;
+        document.getElementById("buy").innerHTML = response1.ticker.buy;
+        document.getElementById("sell").innerHTML = response1.ticker.sell;
+        document.getElementById("date").innerHTML = response1.ticker.date;
+
+        }); 
+        </script>
 </head>
 
 <body style="background-color: #D6D0E8;">
         
         <a href="./index.html"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-arrow-left"></span>
                 Voltar </button></a>
-                <h1 style="text-align: center; margin-top: 100px"> BTC </h1>
+                <h1 style="text-align: center; margin-top: 70px"> BTC </h1>
 
-                <p id="demo">Visit Microsoft!</p>
+     <p style ="text-align: center; margin-top: 50px">Cotação: </p>
 
-<script type="text/javascript" src="/app.js">
-//document.getElementById("result").innerHTML;
-//window.onload=myFunction();
-    // Localiza o elemento com id id_p
-    // var p = document.getElementById('result'); 
-    var str = document.getElementById("demo").innerHTML; 
-    var res = str.replace();
-    document.getElementById("demo") = res;
+     <table id="tabela" class="table table-striped table-bordered" style="margin-left: 1.5%; height: 230px; width: 98%">
+            <tr><td>Valor Max :</td><td id="high"></td></tr>
+            <tr><td>Valor Min :</td><td id="low"></td></tr>
+            <tr><td>Volume :</td><td id="vol"></td></tr>
+            <tr><td>Ultima Valida:</td><td id="last"></td></tr>
+            <tr><td>Compra :</td><td id="buy"></td></tr>
+            <tr><td>Venda :</td><td id="sell"></td></tr>
+            <tr><td>Data :</td><td id="date"></td></tr>
+     </table>
 
-    
-</script>
 
 </body>                
 
